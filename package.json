@@ -1,0 +1,18 @@
+{
+  "name": "mockingbird",
+  "version": "1.0.0",
+  "description": "Dead simple mock and proxy service for third-party API. Useful for testing and development.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fs02",
+  "license": "Proprietary Licence",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "connect": "^3.6.0",
+    "redis": "^2.7.1",
+    "request": "^2.81.0"
+  }
+}
