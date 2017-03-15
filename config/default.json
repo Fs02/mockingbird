@@ -12,7 +12,10 @@
       ]
     },
     "placeholder": {
-      "host": "http://jsonplaceholder.typicode.com"
+      "host": "http://jsonplaceholder.typicode.com",
+      "excludeRequestHeaders": [
+        "accept-encoding"
+      ]
     }
   }
 }

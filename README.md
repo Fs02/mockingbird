@@ -47,6 +47,7 @@ $ vim config/default.json
     "placeholder": {
       "host": "http://jsonplaceholder.typicode.com"
       "proxy": false,
+      "expiry": 60,
       "excludeRequestHeaders": [
         "accept-encoding"
       ]
@@ -59,10 +60,11 @@ $ vim config/default.json
 - **sites**: List of registered services.
 - **host**: Original endpoint.
 - **proxy**: Whether to proxy or to mock, default is false.
+- **expiry**: Cache expiry time in seconds, default is 86400 (24h).
 - **excludeRequestHeaders**: Request headers to be excluded, default is empty.
 
 ## Notes
-- For KAI's Train Ticket API, it's important to exclude `accept-encoding` request header:
+- For some sites like KAI's Train Ticket API or jsonplaceholder, it's necessary to exclude `accept-encoding` request header:
   ```
   "excludeRequestHeaders": [
       "accept-encoding"

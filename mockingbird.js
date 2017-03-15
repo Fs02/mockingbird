@@ -71,7 +71,12 @@ module.exports.middleware = function retrieve() {
                 body: body
               };
 
-              client.set(req.mockingbird.key, JSON.stringify(result));
+              // set expiry time
+              let expiry = 60 * 60 * 24; // 24h
+              if (config.has('sites.' + req.mockingbird.site + '.expiry'))
+                expiry = config.get('sites.' + req.mockingbird.site + '.expiry');
+
+              client.set(req.mockingbird.key, JSON.stringify(result), 'EX', expiry);
 
               console.log('! ' + req.method + ' ' + req.originalUrl);
               res.writeHead(result.statusCode, result.headers);
@@ -89,6 +94,7 @@ module.exports.middleware = function retrieve() {
 
 module.exports.clear = function() {
   client.keys(redisPrefix + '*', function(err, keys) {
+    console.log("Clearing:")
     console.log(keys);
     client.del(keys);
   });
