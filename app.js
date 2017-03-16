@@ -8,14 +8,14 @@ var bodyParser = require('body-parser');
 var mockingbird = require('./mockingbird');
 
 // configure middlewares
-app.use('/~clear', function fooMiddleware(req, res) {
+app.use('/~clear', (req, res) => {
     mockingbird.clear();
     res.end('success!');
 });
 
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(mockingbird.middleware());
-app.use(function(req, res){
+app.use(mockingbird.sing());
+app.use((req, res) => {
     res.writeHead(404, {});
     res.end('not found!');
 });
