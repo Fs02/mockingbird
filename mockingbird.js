@@ -22,6 +22,7 @@ const proxy = (route, res, next) => {
       delete headers[h];
     }
   }
+  headers.Connection = "Keep-Alive";
 
   let options = {
     url: route.url,
