@@ -103,3 +103,12 @@ const router = (req, res, next) => {
 module.exports.sing = () => {
   return router;
 };
+
+module.exports.clear = () => {
+  const REDIS_PREFIX = (config.has('redisPrefix') ? config.get('redisPrefix') : 'mockingbird') + ':';
+  client.keys(REDIS_PREFIX + '*', function(err, keys) {
+    console.log("Clearing:")
+    console.log(keys);
+    client.del(keys);
+  });
+};
