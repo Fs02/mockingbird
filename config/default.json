@@ -1,16 +1,6 @@
 {
   "port": 4000,
   "sites": {
-    "apiv2": {
-      "host": "http://api.local.host:5000",
-      "proxy": true
-    },
-    "railticket": {
-      "host": "http://ws.railticket.kereta-api.co.id",
-      "excludeRequestHeaders": [
-        "accept-encoding"
-      ]
-    },
     "placeholder": {
       "host": "http://jsonplaceholder.typicode.com",
       "excludeRequestHeaders": [
