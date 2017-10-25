@@ -64,7 +64,7 @@ $ vim config/default.json
 - **excludeRequestHeaders**: Request headers to be excluded, default is empty.
 
 ## Notes
-- For some sites like or jsonplaceholder, it's necessary to exclude `accept-encoding` request header:
+- For some sites like jsonplaceholder, it's necessary to exclude `accept-encoding` request header:
   ```
   "excludeRequestHeaders": [
       "accept-encoding"
